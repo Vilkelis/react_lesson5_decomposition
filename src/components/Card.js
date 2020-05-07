@@ -10,7 +10,7 @@ function Card(props) {
           {props.title}
         </a>
       </div> 
-      {props.content()} 
+      {props.children} 
     </div>
   );
 }

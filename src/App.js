@@ -5,6 +5,7 @@ import NewsList from './components/NewsList';
 import Recomendations from './components/Recomendation';
 import SearchPanel from './components/SearchPanel';
 import CardsList from './components/CardsList';
+import Card from './components/Card';
 import ExchangeRatesList from './components/ExchangeRatesList';
 
 function App() {
@@ -51,27 +52,7 @@ function App() {
 
   const ad = {image: '/Ad.png',
               alt:   'Рекламма',
-              href:  '/'};
-
-  const cards = [{title: 'Погода',
-                  href: '/',
-                  content: () => {return <div>+10 днем</div>}
-                 },
-                 {title: 'Посещаемое',
-                  href: '/',
-                  content: () => {
-                     return (
-                       <ul>
-                         <li>Недвижимость</li>
-                         <li>Маркет</li>
-                         <li>Авто.ру</li>
-                      </ul>);}
-                  },
-                  {title: 'Карта Германии',
-                   href: '/',
-                   content: () => {return <a href="/">Расписания</a>}
-                  },
-                ]              
+              href:  '/'};         
 
   return (
     <div className="App">
@@ -86,7 +67,21 @@ function App() {
       </div>
       <div className="app__footer">
         <Ad {...ad}/>
-        <CardsList items={cards} />
+        <CardsList>
+          <Card title={'Погода'} href={'/'}>
+            <div>+10 днем</div>         
+          </Card>
+          <Card title={'Посещаемое'} href={'/'}>
+            <ul>
+              <li>Недвижимость</li>
+              <li>Маркет</li>
+              <li>Авто.ру</li>
+            </ul>          
+          </Card>  
+          <Card title={'Карта Германии'} href={'/'}>
+            <a href="/">Расписания</a>          
+          </Card>                  
+        </CardsList>
       </div>
     </div>
   );
